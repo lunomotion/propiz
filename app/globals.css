@@ -1,19 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  /* Propiz Theme - Refined Light-Dark Mode */
-  --background: #0a0314;
-  --foreground: #ffffff;
+  /* Propiz Theme - White with Purple Accents */
+  --background: #ffffff;
+  --foreground: #1a1a1a;
 
-  /* Brand Colors - More Purple */
+  /* Brand Colors - Purple */
   --primary: #9333ea;
   --primary-glow: #a855f7;
   --secondary: #e879f9;
 
-  /* UI Elements - Lighter */
-  --surface: #1a1625;
-  --surface-hover: #2a2438;
-  --border: #4a4560;
+  /* UI Elements - Light */
+  --surface: #f9f9fb;
+  --surface-hover: #f3f4f6;
+  --border: #e5e7eb;
+  --purple-tint: #f5f3ff;
 }
 
 @theme inline {

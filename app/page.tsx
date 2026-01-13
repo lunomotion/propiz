@@ -24,48 +24,39 @@ export default function Home() {
             <h1 className="text-3xl font-bold">PROPIZ</h1>
           </div>
 
-          <h2 className="text-2xl font-bold mb-3">Welcome back</h2>
-          <p className="text-gray-400 mb-8">Sign in to access your automation dashboard</p>
+          <h2 className="text-2xl font-bold mb-3">Configure Your AI Assistant</h2>
+          <p className="text-gray-400 mb-8">Set up your automation preferences in just 3 steps</p>
 
-          {/* Login Form */}
-          <div className="bg-[#1e1b2e] border border-white/5 rounded-2xl p-8 shadow-2xl mb-6">
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2 text-left">Email</label>
-                <input
-                  type="email"
-                  className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)] outline-none transition-all"
-                  placeholder="you@agency.com"
-                />
+          {/* Main CTA - Get Started */}
+          <Link href="/onboarding" className="w-full mb-4 px-8 py-4 bg-[var(--primary)] hover:bg-[var(--primary-glow)] text-white rounded-xl font-bold text-lg transition-all flex items-center justify-center gap-2 group shadow-lg shadow-[var(--primary)]/20">
+            Get Started
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </Link>
+
+          {/* Features Preview */}
+          <div className="bg-[#1e1b2e] border border-white/5 rounded-2xl p-6 mb-6">
+            <p className="text-sm font-medium text-gray-300 mb-4">What we'll configure:</p>
+            <div className="space-y-3">
+              <div className="flex items-center gap-3 text-sm text-gray-400">
+                <div className="w-6 h-6 rounded-full bg-[var(--primary)]/20 flex items-center justify-center text-[var(--primary)] shrink-0">✓</div>
+                <span>Your ideal customer profile (ICP)</span>
               </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2 text-left">Password</label>
-                <input
-                  type="password"
-                  className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)] outline-none transition-all"
-                  placeholder="••••••••"
-                />
+              <div className="flex items-center gap-3 text-sm text-gray-400">
+                <div className="w-6 h-6 rounded-full bg-[var(--primary)]/20 flex items-center justify-center text-[var(--primary)] shrink-0">✓</div>
+                <span>Target industry and market</span>
               </div>
-              <div className="flex items-center justify-between text-sm">
-                <label className="flex items-center gap-2 text-gray-400">
-                  <input type="checkbox" className="rounded" />
-                  Remember me
-                </label>
-                <a href="#" className="text-[var(--primary)] hover:underline">Forgot password?</a>
+              <div className="flex items-center gap-3 text-sm text-gray-400">
+                <div className="w-6 h-6 rounded-full bg-[var(--primary)]/20 flex items-center justify-center text-[var(--primary)] shrink-0">✓</div>
+                <span>Brand voice and messaging tone</span>
               </div>
             </div>
-
-            <Link href="/dashboard" className="w-full mt-6 px-6 py-3 bg-[var(--primary)] hover:bg-[var(--primary-glow)] text-white rounded-xl font-medium transition-all flex items-center justify-center gap-2 group">
-              Sign In
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
           </div>
 
-          {/* Sign Up Link */}
+          {/* Sign In Link */}
           <div className="text-center text-sm text-gray-400">
-            Don't have an account?{" "}
-            <Link href="/onboarding" className="text-[var(--primary)] hover:underline font-medium">
-              Get started
+            Already have an account?{" "}
+            <Link href="/dashboard" className="text-[var(--primary)] hover:underline font-medium">
+              Sign in
             </Link>
           </div>
         </motion.div>
