@@ -21,11 +21,11 @@ export default function Home() {
             <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--primary)] to-[var(--secondary)] flex items-center justify-center">
               <Bot className="w-7 h-7 text-white" />
             </div>
-            <h1 className="text-3xl font-bold">PROPIZ</h1>
+            <h1 className="text-3xl font-bold text-[var(--foreground)]">PROPIZ</h1>
           </div>
 
-          <h2 className="text-2xl font-bold mb-3">Configure Your AI Assistant</h2>
-          <p className="text-gray-400 mb-8">Set up your automation preferences in just 3 steps</p>
+          <h2 className="text-2xl font-bold mb-3 text-[var(--foreground)]">Configure Your AI Assistant</h2>
+          <p className="text-gray-500 mb-8">Set up your automation preferences in just 3 steps</p>
 
           {/* Main CTA - Get Started */}
           <Link href="/onboarding" className="w-full mb-4 px-8 py-4 bg-[var(--primary)] hover:bg-[var(--primary-glow)] text-white rounded-xl font-bold text-lg transition-all flex items-center justify-center gap-2 group shadow-lg shadow-[var(--primary)]/20">
@@ -34,26 +34,26 @@ export default function Home() {
           </Link>
 
           {/* Features Preview */}
-          <div className="bg-[#1e1b2e] border border-white/5 rounded-2xl p-6 mb-6">
-            <p className="text-sm font-medium text-gray-300 mb-4">What we'll configure:</p>
+          <div className="bg-white border border-gray-200 rounded-2xl p-6 mb-6 shadow-sm">
+            <p className="text-sm font-medium text-gray-700 mb-4">What we'll configure:</p>
             <div className="space-y-3">
-              <div className="flex items-center gap-3 text-sm text-gray-400">
-                <div className="w-6 h-6 rounded-full bg-[var(--primary)]/20 flex items-center justify-center text-[var(--primary)] shrink-0">✓</div>
+              <div className="flex items-center gap-3 text-sm text-gray-500">
+                <div className="w-6 h-6 rounded-full bg-[var(--purple-tint)] flex items-center justify-center text-[var(--primary)] shrink-0">✓</div>
                 <span>Your ideal customer profile (ICP)</span>
               </div>
-              <div className="flex items-center gap-3 text-sm text-gray-400">
-                <div className="w-6 h-6 rounded-full bg-[var(--primary)]/20 flex items-center justify-center text-[var(--primary)] shrink-0">✓</div>
+              <div className="flex items-center gap-3 text-sm text-gray-500">
+                <div className="w-6 h-6 rounded-full bg-[var(--purple-tint)] flex items-center justify-center text-[var(--primary)] shrink-0">✓</div>
                 <span>Target industry and market</span>
               </div>
-              <div className="flex items-center gap-3 text-sm text-gray-400">
-                <div className="w-6 h-6 rounded-full bg-[var(--primary)]/20 flex items-center justify-center text-[var(--primary)] shrink-0">✓</div>
+              <div className="flex items-center gap-3 text-sm text-gray-500">
+                <div className="w-6 h-6 rounded-full bg-[var(--purple-tint)] flex items-center justify-center text-[var(--primary)] shrink-0">✓</div>
                 <span>Brand voice and messaging tone</span>
               </div>
             </div>
           </div>
 
           {/* Sign In Link */}
-          <div className="text-center text-sm text-gray-400">
+          <div className="text-center text-sm text-gray-500">
             Already have an account?{" "}
             <Link href="/dashboard" className="text-[var(--primary)] hover:underline font-medium">
               Sign in
