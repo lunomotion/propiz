@@ -57,11 +57,10 @@ export function OnboardingWizard() {
                         <div key={s.id} className="flex flex-col items-center gap-2">
                             <div
                                 className={cn(
-                                    "w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all duration-300 bg-[var(--background)]",
-                                    isActive ? "border-[var(--primary)] text-[var(--primary)]" : "border-white/20 text-gray-500",
-                                    isCurrent && "bg-[var(--primary)] text-white shadow-[0_0_20px_var(--primary)] ring-4 ring-[var(--primary)]/20"
-                                )}
-                            >
+                                    "w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all duration-300 bg-white",
+                                    isActive ? "border-[var(--primary)] text-[var(--primary)]" : "border-gray-200 text-gray-400",
+                                    isCurrent && "bg-[var(--primary)] text-white shadow-[0_0_20px_rgba(147,51,234,0.3)] ring-4 ring-[var(--primary)]/10"
+                                )}>
                                 <s.icon className="w-5 h-5" />
                             </div>
                             <span className={cn("text-xs font-medium transition-colors", isActive ? "text-white" : "text-gray-500")}>
@@ -73,9 +72,9 @@ export function OnboardingWizard() {
             </div>
 
             {/* Form Steps */}
-            <div className="bg-[#1e1b2e] border border-white/5 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+            <div className="bg-white border border-gray-100 rounded-3xl p-8 md:p-12 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] relative overflow-hidden">
                 {/* Glow effect */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--primary)]/10 blur-[80px] rounded-full pointer-events-none" />
+                <div className="absolute top-0 right-0 w-64 h-64 bg-purple-50 blur-[80px] rounded-full pointer-events-none" />
 
                 <AnimatePresence mode="wait">
                     {step === 1 && (
@@ -93,32 +92,32 @@ export function OnboardingWizard() {
 
                             <div className="space-y-4">
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-300 mb-2">Full Name</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
                                     <input
                                         type="text"
                                         value={data.name}
                                         onChange={(e) => update("name", e.target.value)}
-                                        className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)] outline-none transition-all"
+                                        className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)] outline-none transition-all"
                                         placeholder="e.g. Sarah Connor"
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-300 mb-2">Email Address</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
                                     <input
                                         type="email"
                                         value={data.email}
                                         onChange={(e) => update("email", e.target.value)}
-                                        className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)] outline-none transition-all"
+                                        className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)] outline-none transition-all"
                                         placeholder="you@agency.com"
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-300 mb-2">Agency Name</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">Agency Name</label>
                                     <input
                                         type="text"
                                         value={data.agency}
                                         onChange={(e) => update("agency", e.target.value)}
-                                        className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)] outline-none transition-all"
+                                        className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)] outline-none transition-all"
                                         placeholder="e.g. Luxury Estates"
                                     />
                                 </div>
@@ -141,21 +140,21 @@ export function OnboardingWizard() {
 
                             <div className="space-y-4">
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-300 mb-2">Ideal Customer Profile</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">Ideal Customer Profile</label>
                                     <textarea
                                         value={data.icp}
                                         onChange={(e) => update("icp", e.target.value)}
-                                        className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)] outline-none transition-all min-h-[120px]"
+                                        className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)] outline-none transition-all min-h-[120px]"
                                         placeholder="e.g. High-net-worth individuals, luxury property investors, $5M+ budget, business owners..."
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-300 mb-2">Target Industry</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">Target Industry</label>
                                     <input
                                         type="text"
                                         value={data.targetIndustry}
                                         onChange={(e) => update("targetIndustry", e.target.value)}
-                                        className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)] outline-none transition-all"
+                                        className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)] outline-none transition-all"
                                         placeholder="e.g. Real Estate, Tech, Finance"
                                     />
                                 </div>
@@ -176,22 +175,34 @@ export function OnboardingWizard() {
                                 <p className="text-gray-400">How should your assistant sound?</p>
                             </div>
 
-                            <div className="grid gap-3">
-                                {["Professional & Formal", "Friendly & Casual", "Luxury & Sophisticated"].map((t) => (
-                                    <button
-                                        key={t}
-                                        onClick={() => update("tone", t)}
-                                        className={cn(
-                                            "w-full text-left px-5 py-4 rounded-xl border transition-all flex items-center justify-between",
-                                            data.tone === t
-                                                ? "bg-[var(--primary)]/10 border-[var(--primary)] text-white"
-                                                : "bg-black/20 border-white/10 text-gray-400 hover:bg-white/5"
-                                        )}
-                                    >
-                                        <span className="font-medium">{t}</span>
-                                        {data.tone === t && <Check className="w-5 h-5 text-[var(--primary)]" />}
-                                    </button>
-                                ))}
+                            <div className="space-y-4">
+                                <div className="grid gap-3">
+                                    {["Professional & Formal", "Friendly & Casual", "Luxury & Sophisticated"].map((t) => (
+                                        <button
+                                            key={t}
+                                            onClick={() => update("tone", t)}
+                                            className={cn(
+                                                "w-full text-left px-5 py-4 rounded-xl border transition-all flex items-center justify-between",
+                                                data.tone === t
+                                                    ? "bg-[var(--primary)] text-white border-[var(--primary)] shadow-lg"
+                                                    : "bg-white border-gray-200 text-gray-600 hover:border-[var(--primary)] hover:bg-[var(--primary)]/5"
+                                            )}
+                                        >
+                                            <span className="font-medium">{t}</span>
+                                            {data.tone === t && <Check className="w-5 h-5 text-white" />}
+                                        </button>
+                                    ))}
+                                </div>
+
+                                <div className="mt-4 pt-4 border-t border-gray-100">
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">Or describe your custom voice</label>
+                                    <textarea
+                                        value={data.tone.startsWith("Custom:") ? data.tone.replace("Custom: ", "") : ""}
+                                        onChange={(e) => update("tone", `Custom: ${e.target.value}`)}
+                                        className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)] outline-none transition-all placeholder:text-gray-400 min-h-[100px]"
+                                        placeholder="e.g. Witty, uses emojis, speaks like a local expert..."
+                                    />
+                                </div>
                             </div>
                         </motion.div>
                     )}
@@ -203,17 +214,28 @@ export function OnboardingWizard() {
                             animate={{ opacity: 1, scale: 1 }}
                             className="text-center py-8"
                         >
-                            <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                                <Check className="w-10 h-10 text-green-500" />
+                            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <Check className="w-10 h-10 text-green-600" />
                             </div>
-                            <h2 className="text-3xl font-bold mb-4">You're all set!</h2>
-                            <p className="text-gray-400 mb-8 max-w-md mx-auto">
-                                Propiz is now configured for <strong>{data.agency || "your agency"}</strong> targeting <strong>{data.targetIndustry || "your industry"}</strong>.
+                            <h2 className="text-3xl font-bold mb-4 text-gray-900">We're configuring your agent</h2>
+                            <p className="text-gray-500 mb-8 max-w-md mx-auto leading-relaxed">
+                                Our system is training your custom AI model based on your profile. <br />
+                                <strong className="text-[var(--primary)]">It will be ready to use in 24 hours.</strong>
                             </p>
 
-                            <div className="p-4 rounded-xl bg-white/5 border border-white/10 text-left mb-8 text-sm text-gray-300">
-                                <p className="font-mono">API Key generated: pk_live_59...</p>
-                                <p className="font-mono mt-2">Webhook URL: https://api.propiz.io/wh/...</p>
+                            <div className="p-6 rounded-2xl bg-gradient-to-br from-[var(--surface)] to-white border border-gray-100 text-left mb-8 shadow-sm">
+                                <div className="flex items-start gap-4 mb-4">
+                                    <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shrink-0">
+                                        <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse" />
+                                    </div>
+                                    <div>
+                                        <h4 className="font-bold text-gray-900">System Status</h4>
+                                        <p className="text-sm text-gray-500">Configuring n8n workflows & webhooks...</p>
+                                    </div>
+                                </div>
+                                <div className="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
+                                    <div className="h-full bg-[var(--primary)] w-[60%] animate-[width_2s_ease-in-out_infinite]" style={{ width: '60%' }}></div>
+                                </div>
                             </div>
 
                             <Link href="/dashboard" className="inline-flex items-center gap-2 px-8 py-3 bg-[var(--primary)] hover:bg-[var(--primary)]/90 text-white rounded-full font-bold transition-all">
@@ -242,6 +264,6 @@ export function OnboardingWizard() {
                     </div>
                 )}
             </div>
-        </div>
+        </div >
     );
 }

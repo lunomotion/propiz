@@ -40,9 +40,9 @@ body {
 
 /* Custom Utilities */
 .glass-panel {
-  background: rgba(30, 27, 46, 0.7);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(124, 58, 237, 0.2);
+  border: 1px solid rgba(229, 231, 235, 1);
 }
 
 .text-gradient {

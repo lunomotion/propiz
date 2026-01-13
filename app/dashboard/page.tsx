@@ -1,5 +1,5 @@
 "use client";
-import { BarChart3, Settings, Bell, Search, FileText, Zap, Bot, LifeBuoy, ArrowRight, LogOut } from "lucide-react";
+import { BarChart3, Settings, Bell, Search, FileText, Zap, Bot, LifeBuoy, ArrowRight, LogOut, Target, Home, Briefcase } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
 
@@ -24,9 +24,9 @@ export default function Dashboard() {
                     <Link href="/automations" className="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-[var(--surface)] rounded-xl transition-colors">
                         <Zap className="w-5 h-5" /> Automations
                     </Link>
-                    <a href="#" className="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-[var(--surface)] rounded-xl transition-colors">
+                    <Link href="/settings" className="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-[var(--surface)] rounded-xl transition-colors">
                         <Settings className="w-5 h-5" /> Settings
-                    </a>
+                    </Link>
                 </nav>
 
                 <div className="mt-auto pt-6 border-t border-[var(--border)] space-y-2">
@@ -108,14 +108,14 @@ export default function Dashboard() {
                                 {
                                     name: "Lead Prospecting",
                                     desc: "Find and qualify leads based on your ICP",
-                                    icon: "🎯",
+                                    icon: Target,
                                     status: "Active",
                                     uses: 42
                                 },
                                 {
                                     name: "Property Research",
                                     desc: "Automated property data collection and analysis",
-                                    icon: "🏠",
+                                    icon: Home,
                                     status: "Active",
                                     uses: 18
                                 },
@@ -126,7 +126,9 @@ export default function Dashboard() {
                                     className="p-6 rounded-2xl bg-white border border-[var(--border)] hover:border-[var(--primary)] hover:shadow-md transition-all text-left group"
                                 >
                                     <div className="flex items-start justify-between mb-4">
-                                        <div className="text-3xl">{automation.icon}</div>
+                                        <div className="text-[var(--primary)] bg-[var(--purple-tint)] p-3 rounded-xl">
+                                            <automation.icon className="w-6 h-6" />
+                                        </div>
                                         <span className="px-2 py-1 rounded-full text-xs bg-green-50 text-green-600 border border-green-200">
                                             {automation.status}
                                         </span>
@@ -146,13 +148,13 @@ export default function Dashboard() {
                         <h3 className="font-bold mb-6 text-[var(--foreground)]">Recent Activity</h3>
                         <div className="space-y-4">
                             {[
-                                { action: "2 new leads", detail: "High-value prospects added this week", time: "Today", icon: "🎯" },
-                                { action: "5 properties researched", detail: "Market analysis completed", time: "Yesterday", icon: "🏠" },
-                                { action: "12 LinkedIn connections", detail: "New outreach targets identified", time: "2d ago", icon: "💼" },
+                                { action: "2 new leads", detail: "High-value prospects added this week", time: "Today", icon: Target },
+                                { action: "5 properties researched", detail: "Market analysis completed", time: "Yesterday", icon: Home },
+                                { action: "12 LinkedIn connections", detail: "New outreach targets identified", time: "2d ago", icon: Briefcase },
                             ].map((item, i) => (
                                 <div key={i} className="flex gap-4 items-start pb-4 border-b border-[var(--border)] last:border-0">
-                                    <div className="w-8 h-8 rounded-full bg-[var(--purple-tint)] flex items-center justify-center shrink-0 text-lg">
-                                        {item.icon}
+                                    <div className="w-8 h-8 rounded-full bg-[var(--purple-tint)] flex items-center justify-center shrink-0 text-lg text-[var(--primary)]">
+                                        <item.icon className="w-4 h-4" />
                                     </div>
                                     <div className="flex-1">
                                         <p className="text-sm font-medium text-[var(--foreground)]">{item.action}</p>
