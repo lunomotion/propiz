@@ -8,10 +8,10 @@ import Link from "next/link";
 
 type FormData = {
     name: string;
+    email: string;
     agency: string;
-    targetArea: string;
-    budgetMin: string;
-    budgetMax: string;
+    icp: string;
+    targetIndustry: string;
     tone: string;
 };
 
@@ -26,11 +26,11 @@ export function OnboardingWizard() {
     const [step, setStep] = useState(1);
     const [data, setData] = useState<FormData>({
         name: "",
+        email: "",
         agency: "",
-        targetArea: "",
-        budgetMin: "",
-        budgetMax: "",
-        tone: "Professional",
+        icp: "",
+        targetIndustry: "",
+        tone: "Professional & Formal",
     });
 
     const next = () => setStep((s) => Math.min(s + 1, 4));
@@ -103,6 +103,16 @@ export function OnboardingWizard() {
                                     />
                                 </div>
                                 <div>
+                                    <label className="block text-sm font-medium text-gray-300 mb-2">Email Address</label>
+                                    <input
+                                        type="email"
+                                        value={data.email}
+                                        onChange={(e) => update("email", e.target.value)}
+                                        className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)] outline-none transition-all"
+                                        placeholder="you@agency.com"
+                                    />
+                                </div>
+                                <div>
                                     <label className="block text-sm font-medium text-gray-300 mb-2">Agency Name</label>
                                     <input
                                         type="text"
@@ -125,42 +135,29 @@ export function OnboardingWizard() {
                             className="space-y-6"
                         >
                             <div className="text-center mb-8">
-                                <h2 className="text-2xl font-bold mb-2">Define your market</h2>
-                                <p className="text-gray-400">Where are you looking for leads?</p>
+                                <h2 className="text-2xl font-bold mb-2">Define your ICP</h2>
+                                <p className="text-gray-400">Who are your ideal customers?</p>
                             </div>
 
                             <div className="space-y-4">
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-300 mb-2">Target Area / Neighborhood</label>
-                                    <input
-                                        type="text"
-                                        value={data.targetArea}
-                                        onChange={(e) => update("targetArea", e.target.value)}
-                                        className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)] outline-none transition-all"
-                                        placeholder="e.g. Downtown Dubai"
+                                    <label className="block text-sm font-medium text-gray-300 mb-2">Ideal Customer Profile</label>
+                                    <textarea
+                                        value={data.icp}
+                                        onChange={(e) => update("icp", e.target.value)}
+                                        className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)] outline-none transition-all min-h-[120px]"
+                                        placeholder="e.g. High-net-worth individuals, luxury property investors, $5M+ budget, business owners..."
                                     />
                                 </div>
-                                <div className="grid grid-cols-2 gap-4">
-                                    <div>
-                                        <label className="block text-sm font-medium text-gray-300 mb-2">Min Budget</label>
-                                        <input
-                                            type="text"
-                                            value={data.budgetMin}
-                                            onChange={(e) => update("budgetMin", e.target.value)}
-                                            className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white"
-                                            placeholder="$500k"
-                                        />
-                                    </div>
-                                    <div>
-                                        <label className="block text-sm font-medium text-gray-300 mb-2">Max Budget</label>
-                                        <input
-                                            type="text"
-                                            value={data.budgetMax}
-                                            onChange={(e) => update("budgetMax", e.target.value)}
-                                            className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white"
-                                            placeholder="$5M"
-                                        />
-                                    </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-300 mb-2">Target Industry</label>
+                                    <input
+                                        type="text"
+                                        value={data.targetIndustry}
+                                        onChange={(e) => update("targetIndustry", e.target.value)}
+                                        className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)] outline-none transition-all"
+                                        placeholder="e.g. Real Estate, Tech, Finance"
+                                    />
                                 </div>
                             </div>
                         </motion.div>
@@ -211,7 +208,7 @@ export function OnboardingWizard() {
                             </div>
                             <h2 className="text-3xl font-bold mb-4">You're all set!</h2>
                             <p className="text-gray-400 mb-8 max-w-md mx-auto">
-                                Propiz is now configured for <strong>{data.agency || "your agency"}</strong> targeting <strong>{data.targetArea || "your area"}</strong>.
+                                Propiz is now configured for <strong>{data.agency || "your agency"}</strong> targeting <strong>{data.targetIndustry || "your industry"}</strong>.
                             </p>
 
                             <div className="p-4 rounded-xl bg-white/5 border border-white/10 text-left mb-8 text-sm text-gray-300">

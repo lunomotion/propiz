@@ -1,6 +1,7 @@
 "use client";
-import { BarChart3, Settings, Bell, Search, FileText, Zap, Bot, LifeBuoy } from "lucide-react";
+import { BarChart3, Settings, Bell, Search, FileText, Zap, Bot, LifeBuoy, ArrowRight } from "lucide-react";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Dashboard() {
     const [showSupport, setShowSupport] = useState(false);
@@ -20,9 +21,9 @@ export default function Dashboard() {
                     <a href="#" className="flex items-center gap-3 px-4 py-3 bg-[var(--primary)]/10 text-[var(--primary)] rounded-xl font-medium">
                         <BarChart3 className="w-5 h-5" /> Dashboard
                     </a>
-                    <a href="#" className="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-white/5 rounded-xl transition-colors">
+                    <Link href="/automations" className="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-white/5 rounded-xl transition-colors">
                         <Zap className="w-5 h-5" /> Automations
-                    </a>
+                    </Link>
                     <a href="#" className="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-white/5 rounded-xl transition-colors">
                         <Settings className="w-5 h-5" /> Settings
                     </a>
@@ -72,9 +73,9 @@ export default function Dashboard() {
                     {/* Stats Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                         {[
-                            { label: "Active Automations", val: "3", icon: Zap, color: "text-blue-400" },
-                            { label: "Tasks Completed", val: "127", icon: BarChart3, color: "text-green-400" },
-                            { label: "This Month", val: "48", icon: FileText, color: "text-purple-400" },
+                            { label: "Messages Sent", val: "127", icon: Zap, color: "text-blue-400" },
+                            { label: "Messages Opened", val: "89", icon: BarChart3, color: "text-green-400" },
+                            { label: "Messages Replied", val: "34", icon: FileText, color: "text-purple-400" },
                         ].map((s, i) => (
                             <div key={i} className="p-6 rounded-2xl bg-white/5 border border-white/5">
                                 <div className="flex items-center gap-3 mb-3">
@@ -90,33 +91,32 @@ export default function Dashboard() {
 
                     {/* Automations Grid */}
                     <div className="mb-8">
-                        <h2 className="text-xl font-bold mb-4">Your Automations</h2>
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div className="flex items-center justify-between mb-4">
+                            <h2 className="text-xl font-bold">Your Automations</h2>
+                            <Link href="/automations" className="text-[var(--primary)] hover:text-[var(--primary-glow)] text-sm font-medium flex items-center gap-2">
+                                View All <ArrowRight className="w-4 h-4" />
+                            </Link>
+                        </div>
+                        <div className="grid md:grid-cols-2 gap-6">
                             {[
                                 {
-                                    name: "Contract Transformer",
-                                    desc: "Transform proposals into contracts",
-                                    icon: "📄",
+                                    name: "Lead Prospecting",
+                                    desc: "Find and qualify leads based on your ICP",
+                                    icon: "🎯",
                                     status: "Active",
                                     uses: 42
                                 },
                                 {
-                                    name: "Email Automation",
-                                    desc: "Automated email campaigns",
-                                    icon: "✉️",
-                                    status: "Active",
-                                    uses: 67
-                                },
-                                {
-                                    name: "Lead Enrichment",
-                                    desc: "Auto-enrich lead data",
-                                    icon: "🎯",
+                                    name: "Property Research",
+                                    desc: "Automated property data collection and analysis",
+                                    icon: "🏠",
                                     status: "Active",
                                     uses: 18
                                 },
                             ].map((automation, i) => (
-                                <button
+                                <Link
                                     key={i}
+                                    href="/automations"
                                     className="p-6 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-[var(--primary)]/50 transition-all text-left group"
                                 >
                                     <div className="flex items-start justify-between mb-4">
@@ -130,7 +130,7 @@ export default function Dashboard() {
                                     <div className="pt-4 border-t border-white/5 text-xs text-gray-500">
                                         {automation.uses} uses this month
                                     </div>
-                                </button>
+                                </Link>
                             ))}
                         </div>
                     </div>
@@ -140,13 +140,13 @@ export default function Dashboard() {
                         <h3 className="font-bold mb-6">Recent Activity</h3>
                         <div className="space-y-4">
                             {[
-                                { action: "Contract generated", detail: "client_proposal_v2.pdf → contract.docx", time: "5m ago" },
-                                { action: "Email sent", detail: "Welcome sequence → john@example.com", time: "12m ago" },
-                                { action: "Lead enriched", detail: "Sarah J. → +15 data points", time: "1h ago" },
+                                { action: "2 new leads", detail: "High-value prospects added this week", time: "Today", icon: "🎯" },
+                                { action: "5 properties researched", detail: "Market analysis completed", time: "Yesterday", icon: "🏠" },
+                                { action: "12 LinkedIn connections", detail: "New outreach targets identified", time: "2d ago", icon: "💼" },
                             ].map((item, i) => (
                                 <div key={i} className="flex gap-4 items-start pb-4 border-b border-white/5 last:border-0">
-                                    <div className="w-8 h-8 rounded-full bg-[var(--primary)]/20 flex items-center justify-center shrink-0">
-                                        <Zap className="w-4 h-4 text-[var(--primary)]" />
+                                    <div className="w-8 h-8 rounded-full bg-[var(--primary)]/20 flex items-center justify-center shrink-0 text-lg">
+                                        {item.icon}
                                     </div>
                                     <div className="flex-1">
                                         <p className="text-sm font-medium">{item.action}</p>
